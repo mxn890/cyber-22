@@ -107,7 +107,7 @@ const Hero: React.FC = () => {
         <div className="floating-element absolute bottom-20 right-1/3 w-5 h-5 bg-[#FF2E63] rounded-full opacity-30" style={{animationDelay: '3s'}}></div>
       </div>
       
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 w-full">
         <div className="mb-12">
           <h1 className="text-6xl md:text-8xl font-bold mb-8 cyber-gradient neon-text leading-tight" style={{ letterSpacing: '2px' }}>
             CYBER
@@ -126,47 +126,51 @@ const Hero: React.FC = () => {
           <span className="text-[#00FF94]">Secure your digital presence with military-grade protection.</span>
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20 relative z-20">
           <button 
             onClick={() => scrollToSection('breach-checker')}
-            className="px-10 py-5 bg-gradient-to-r from-[#00FF94] to-[#00CC77] text-black font-bold rounded-lg hover:from-[#00CC77] hover:to-[#00AA66] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#00FF94]/25 text-lg"
+            className="px-10 py-5 bg-gradient-to-r from-[#00FF94] to-[#00CC77] text-black font-bold rounded-lg hover:from-[#00CC77] hover:to-[#00AA66] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#00FF94]/25 text-lg relative overflow-hidden group"
           >
-            Check Data Breaches
+            <span className="relative z-10">Check Data Breaches</span>
+            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
           </button>
           <button 
             onClick={() => scrollToSection('tools')}
-            className="px-10 py-5 border-2 border-[#FF2E63] text-[#FF2E63] font-bold rounded-lg hover:bg-[#FF2E63] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg"
+            className="px-10 py-5 border-2 border-[#FF2E63] text-[#FF2E63] font-bold rounded-lg hover:bg-[#FF2E63]/10 transition-all duration-300 transform hover:scale-105 text-lg relative overflow-hidden group"
           >
-            Explore Arsenal
+            <span className="relative z-10">Explore Arsenal</span>
+            <span className="absolute inset-0 bg-[#FF2E63] opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
           </button>
         </div>
-      </div>
 
-      {/* Stats Cards - Fixed positioning */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-4 z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="glassmorphism p-6 rounded-2xl hover:neon-glow transition-all duration-300 transform hover:scale-105 text-center">
-            <div className="text-3xl font-bold text-[#00FF94] mb-2">500+</div>
-            <div className="text-gray-300 text-lg">Security Tools</div>
-            <div className="text-sm text-gray-400 mt-1">Professional Grade</div>
-          </div>
-          <div className="glassmorphism p-6 rounded-2xl hover:neon-glow transition-all duration-300 transform hover:scale-105 text-center">
-            <div className="text-3xl font-bold text-[#FF2E63] mb-2">24/7</div>
-            <div className="text-gray-300 text-lg">Threat Monitoring</div>
-            <div className="text-sm text-gray-400 mt-1">Real-time Protection</div>
-          </div>
-          <div className="glassmorphism p-6 rounded-2xl hover:neon-glow transition-all duration-300 transform hover:scale-105 text-center">
-            <div className="text-3xl font-bold text-[#00FF94] mb-2">99.9%</div>
-            <div className="text-gray-300 text-lg">Success Rate</div>
-            <div className="text-sm text-gray-400 mt-1">Proven Results</div>
+        {/* Stats Cards - Moved inside the content container */}
+        <div className="w-full px-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="glassmorphism p-6 rounded-2xl hover:neon-glow transition-all duration-300 transform hover:scale-105 text-center backdrop-blur-sm">
+              <div className="text-3xl font-bold text-[#00FF94] mb-2">500+</div>
+              <div className="text-gray-300 text-lg">Security Tools</div>
+              <div className="text-sm text-gray-400 mt-1">Professional Grade</div>
+            </div>
+            <div className="glassmorphism p-6 rounded-2xl hover:neon-glow transition-all duration-300 transform hover:scale-105 text-center backdrop-blur-sm">
+              <div className="text-3xl font-bold text-[#FF2E63] mb-2">24/7</div>
+              <div className="text-gray-300 text-lg">Threat Monitoring</div>
+              <div className="text-sm text-gray-400 mt-1">Real-time Protection</div>
+            </div>
+            <div className="glassmorphism p-6 rounded-2xl hover:neon-glow transition-all duration-300 transform hover:scale-105 text-center backdrop-blur-sm">
+              <div className="text-3xl font-bold text-[#00FF94] mb-2">99.9%</div>
+              <div className="text-gray-300 text-lg">Success Rate</div>
+              <div className="text-sm text-gray-400 mt-1">Proven Results</div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="scroll-indicator">
-          <div className="scroll-arrow"></div>
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="scroll-indicator animate-bounce">
+          <div className="w-6 h-10 border-2 border-[#00FF94] rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-[#00FF94] rounded-full mt-2 animate-scroll"></div>
+          </div>
         </div>
       </div>
     </section>
