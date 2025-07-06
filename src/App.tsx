@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import DataBreachChecker from './components/DataBreachChecker';
@@ -7,9 +9,24 @@ import About from './components/About';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 
+import BlogPage from './pages/blog';
+
+function HomePage() {
+  return (
+    <>
+      <CustomCursor />
+      <Navbar />
+      <Hero />
+      <DataBreachChecker />
+      <Tools />
+      <About />
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   useEffect(() => {
-    // Smooth scrolling for all anchor links
     const handleSmoothScroll = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
       if (target.hash) {
@@ -27,13 +44,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <CustomCursor />
-      <Navbar />
-      <Hero />
-      <DataBreachChecker />
-      <Tools />
-      <About />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog" element={<BlogPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

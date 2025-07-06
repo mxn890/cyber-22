@@ -38,6 +38,10 @@ const Navbar: React.FC = () => {
                 About
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00FF94] transition-all duration-300 group-hover:w-full"></span>
               </a>
+              <a href="/blog" className="hover:text-[#00FF94] transition-colors duration-300 relative group">
+  Blog
+  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00FF94] transition-all duration-300 group-hover:w-full"></span>
+</a>
             </div>
           </div>
 
@@ -62,6 +66,9 @@ const Navbar: React.FC = () => {
             <a href="#home" className="block px-3 py-2 text-white hover:text-[#00FF94] transition-colors duration-300">Home</a>
             <a href="#tools" className="block px-3 py-2 text-white hover:text-[#00FF94] transition-colors duration-300">Tools</a>
             <a href="#about" className="block px-3 py-2 text-white hover:text-[#00FF94] transition-colors duration-300">About</a>
+            <a href="#about" className="block px-3 py-2 text-white hover:text-[#00FF94] transition-colors duration-300">About</a>
+            <a href="/blog" className="block px-3 py-2 text-white hover:text-[#00FF94] transition-colors duration-300">Blog</a>
+
           </div>
         </div>
       )}

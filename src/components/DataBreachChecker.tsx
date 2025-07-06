@@ -102,23 +102,23 @@ const DataBreachChecker: React.FC = () => {
   };
 
   return (
-    <section id="breach-checker" className="py-20 px-4 bg-gray-900 relative overflow-hidden">
-      {/* Cyber Security Background Images */}
-      <div className="absolute inset-0 z-0 opacity-70">
-        <div className="absolute inset-0 bg-[url('/images/data1.png')] bg-cover bg-center"></div>
+    <section id="breach-checker" className="py-12 md:py-20 px-4 bg-gray-900 relative overflow-hidden">
+      {/* Fixed background with better mobile support */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gray-900"></div>
+        <div className="absolute inset-0 opacity-70 bg-[url('/images/data1.png')] bg-cover bg-center bg-no-repeat"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-black via-black/80 to-black/50"></div>
       </div>
       
-      {/* Binary code animation overlay */}
+      {/* Binary code animation overlay - simplified for mobile */}
       <div className="absolute inset-0 z-0 opacity-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/data2.png')] bg-[length:20px_20px] animate-[moveBg_100s_linear_infinite]"></div>
+        <div className="absolute inset-0 bg-[url('/images/data2.png')] bg-[length:20px_20px] md:animate-[moveBg_100s_linear_infinite]"></div>
       </div>
 
-      {/* Animated floating elements */}
+      {/* Animated floating elements - reduced for mobile */}
       <div className="absolute inset-0 z-0 opacity-10">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-[#00FF94] rounded-full animate-pulse"></div>
-        <div className="absolute bottom-32 right-20 w-3 h-3 bg-[#FF2E63] rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-[#00FF94] rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="hidden md:block absolute top-20 left-10 w-2 h-2 bg-[#00FF94] rounded-full animate-pulse"></div>
+        <div className="hidden md:block absolute bottom-32 right-20 w-3 h-3 bg-[#FF2E63] rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -127,15 +127,15 @@ const DataBreachChecker: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8 md:mb-12"
         >
-          <div className="inline-flex items-center justify-center bg-[#00FF94]/10 p-3 rounded-full mb-6 border border-[#00FF94]/30">
-            <FiShield className="text-2xl text-[#00FF94]" />
+          <div className="inline-flex items-center justify-center bg-[#00FF94]/10 p-2 md:p-3 rounded-full mb-4 md:mb-6 border border-[#00FF94]/30">
+            <FiShield className="text-xl md:text-2xl text-[#00FF94]" />
           </div>
-          <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00FF94] to-[#00CC77]">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00FF94] to-[#00CC77]">
             Dark Web Breach Scanner
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
             Discover if your credentials have been exposed in any known data breaches across the dark web
           </p>
         </motion.div>
@@ -145,24 +145,24 @@ const DataBreachChecker: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="glassmorphism p-8 rounded-2xl max-w-2xl mx-auto border border-white/10 backdrop-blur-sm"
+          className="glassmorphism p-4 md:p-8 rounded-xl md:rounded-2xl max-w-2xl mx-auto border border-white/10 backdrop-blur-sm"
         >
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
+          <div className="flex flex-col gap-4 mb-4 md:mb-6">
             <div className="relative flex-1">
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                 <FiMail />
               </div>
               <input
                 type="email"
-                placeholder="Enter your email address"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-12 pr-10 py-4 bg-gray-800/70 border border-gray-600 rounded-lg focus:border-[#00FF94] focus:outline-none text-white text-lg placeholder-gray-400 transition-all duration-300"
+                className="w-full pl-10 pr-8 py-3 md:py-4 bg-gray-800/70 border border-gray-600 rounded-lg focus:border-[#00FF94] focus:outline-none text-white text-base md:text-lg placeholder-gray-400 transition-all duration-300"
               />
               {email && (
                 <button 
                   onClick={() => setEmail('')}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
                 >
                   <FiX />
                 </button>
@@ -171,9 +171,9 @@ const DataBreachChecker: React.FC = () => {
             <button
               onClick={handleCheck}
               disabled={!email || isChecking}
-              className="px-8 py-4 bg-gradient-to-r from-[#00FF94] to-[#00CC77] text-black font-bold rounded-lg hover:from-[#00CC77] hover:to-[#00AA66] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-[#00FF94]/30 relative overflow-hidden group"
+              className="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#00FF94] to-[#00CC77] text-black font-bold rounded-lg hover:from-[#00CC77] hover:to-[#00AA66] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-[#00FF94]/30 relative overflow-hidden group"
             >
-              <span className="relative z-10 flex items-center justify-center gap-2">
+              <span className="relative z-10 flex items-center justify-center gap-2 text-sm md:text-base">
                 {isChecking ? (
                   <>
                     <FiRefreshCw className="animate-spin" />
@@ -192,17 +192,17 @@ const DataBreachChecker: React.FC = () => {
 
           {/* Scan progress bar */}
           {isChecking && (
-            <div className="mb-6">
-              <div className="flex justify-between text-sm text-gray-400 mb-2">
-                <span className="flex items-center gap-2">
-                  <FiEye className="animate-pulse" />
+            <div className="mb-4 md:mb-6">
+              <div className="flex justify-between text-xs md:text-sm text-gray-400 mb-1 md:mb-2">
+                <span className="flex items-center gap-1 md:gap-2">
+                  <FiEye className="animate-pulse text-sm" />
                   Scanning dark web...
                 </span>
                 <span>{scanProgress}%</span>
               </div>
-              <div className="w-full bg-gray-700 rounded-full h-2.5">
+              <div className="w-full bg-gray-700 rounded-full h-2 md:h-2.5">
                 <motion.div 
-                  className="bg-gradient-to-r from-[#00FF94] to-[#00CC77] h-2.5 rounded-full"
+                  className="bg-gradient-to-r from-[#00FF94] to-[#00CC77] h-2 md:h-2.5 rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: `${scanProgress}%` }}
                   transition={{ duration: 0.3 }}
@@ -220,20 +220,20 @@ const DataBreachChecker: React.FC = () => {
                 transition={{ duration: 0.4 }}
                 className={`overflow-hidden rounded-lg border ${result.found ? 'bg-red-900/20 border-red-500/30' : 'bg-green-900/20 border-green-500/30'}`}
               >
-                <div className="p-6">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${result.found ? 'bg-red-500/20 border border-red-500' : 'bg-green-500/20 border border-green-500'}`}>
+                <div className="p-4 md:p-6">
+                  <div className="flex items-start gap-3 md:gap-4 mb-3 md:mb-4">
+                    <div className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center ${result.found ? 'bg-red-500/20 border border-red-500' : 'bg-green-500/20 border border-green-500'}`}>
                       {result.found ? (
-                        <FiAlertTriangle className="text-xl text-red-400" />
+                        <FiAlertTriangle className="text-lg md:text-xl text-red-400" />
                       ) : (
-                        <FiCheck className="text-xl text-green-400" />
+                        <FiCheck className="text-lg md:text-xl text-green-400" />
                       )}
                     </div>
                     <div>
-                      <h3 className={`text-xl font-bold ${result.found ? 'text-red-400' : 'text-green-400'}`}>
+                      <h3 className={`text-lg md:text-xl font-bold ${result.found ? 'text-red-400' : 'text-green-400'}`}>
                         {result.message}
                       </h3>
-                      <p className="text-gray-400 mt-1">
+                      <p className="text-gray-400 mt-1 text-sm md:text-base">
                         {result.found 
                           ? 'We found your email in the following breaches:' 
                           : 'No known breaches found in our database.'}
@@ -242,20 +242,20 @@ const DataBreachChecker: React.FC = () => {
                   </div>
                   
                   {result.found && result.breaches.length > 0 && (
-                    <div className="mt-4">
-                      <div className="grid gap-4">
+                    <div className="mt-3 md:mt-4">
+                      <div className="grid gap-3 md:gap-4">
                         {result.breaches.map((breach, index) => (
                           <motion.div
                             key={index}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-gray-800/50 p-4 rounded-lg border border-red-900/50"
+                            className="bg-gray-800/50 p-3 md:p-4 rounded-lg border border-red-900/50"
                           >
-                            <div className="flex justify-between items-start">
+                            <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
                               <div>
-                                <h4 className="font-bold text-red-300">{breach.name}</h4>
-                                <p className="text-sm text-gray-400">Breached: {breach.date}</p>
+                                <h4 className="font-bold text-red-300 text-sm md:text-base">{breach.name}</h4>
+                                <p className="text-xs md:text-sm text-gray-400">Breached: {breach.date}</p>
                               </div>
                               <div className="flex items-center gap-2">
                                 <span className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">
@@ -264,7 +264,7 @@ const DataBreachChecker: React.FC = () => {
                                 <SeverityBadge level={breach.severity} />
                               </div>
                             </div>
-                            <div className="mt-3 flex items-center gap-2 text-sm text-gray-400">
+                            <div className="mt-2 md:mt-3 flex items-center gap-2 text-xs md:text-sm text-gray-400">
                               <FiKey className="flex-shrink-0" />
                               <span>Passwords, emails, and personal data exposed</span>
                             </div>
@@ -272,27 +272,27 @@ const DataBreachChecker: React.FC = () => {
                         ))}
                       </div>
                       
-                      <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                        <h4 className="font-bold text-white mb-3 flex items-center gap-2">
+                      <div className="mt-4 md:mt-6 p-3 md:p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-white mb-2 md:mb-3 flex items-center gap-2 text-sm md:text-base">
                           <FiShield />
                           Recommended Actions:
                         </h4>
-                        <ul className="space-y-3 text-sm text-gray-300">
-                          <li className="flex items-start gap-3">
+                        <ul className="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-300">
+                          <li className="flex items-start gap-2 md:gap-3">
                             <div className="bg-[#00FF94]/10 p-1 rounded-full mt-0.5">
-                              <FiKey className="text-[#00FF94]" />
+                              <FiKey className="text-[#00FF94] text-sm" />
                             </div>
                             <span>Change passwords for affected accounts immediately</span>
                           </li>
-                          <li className="flex items-start gap-3">
+                          <li className="flex items-start gap-2 md:gap-3">
                             <div className="bg-[#00FF94]/10 p-1 rounded-full mt-0.5">
-                              <FiUserCheck className="text-[#00FF94]" />
+                              <FiUserCheck className="text-[#00FF94] text-sm" />
                             </div>
                             <span>Enable two-factor authentication where available</span>
                           </li>
-                          <li className="flex items-start gap-3">
+                          <li className="flex items-start gap-2 md:gap-3">
                             <div className="bg-[#00FF94]/10 p-1 rounded-full mt-0.5">
-                              <FiDownload className="text-[#00FF94]" />
+                              <FiDownload className="text-[#00FF94] text-sm" />
                             </div>
                             <span>Monitor financial accounts for suspicious activity</span>
                           </li>
@@ -305,9 +305,9 @@ const DataBreachChecker: React.FC = () => {
             )}
           </AnimatePresence>
 
-          <div className="mt-8 text-sm text-gray-400 flex flex-col items-center">
-            <div className="flex items-center gap-2 mb-2">
-              <FiLock className="text-[#00FF94]" />
+          <div className="mt-6 md:mt-8 text-xs md:text-sm text-gray-400 flex flex-col items-center">
+            <div className="flex items-center gap-1 md:gap-2 mb-1 md:mb-2">
+              <FiLock className="text-[#00FF94] text-sm" />
               <span>Your email is never stored or shared</span>
             </div>
             <p className="text-center">We only check against public breach databases</p>
@@ -320,45 +320,45 @@ const DataBreachChecker: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-16 text-left max-w-2xl mx-auto"
+          className="mt-8 md:mt-16 text-left max-w-2xl mx-auto"
         >
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
             <FiShield className="text-[#00FF94]" />
             Security Best Practices
           </h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {[
               {
-                icon: <FiKey className="text-2xl text-[#00FF94]" />,
+                icon: <FiKey className="text-xl md:text-2xl text-[#00FF94]" />,
                 title: 'Use Strong Passwords',
                 description: 'Create complex passwords with a mix of letters, numbers, and symbols.'
               },
               {
-                icon: <FiUserCheck className="text-2xl text-[#00FF94]" />,
+                icon: <FiUserCheck className="text-xl md:text-2xl text-[#00FF94]" />,
                 title: 'Enable 2FA',
                 description: 'Add an extra layer of security with two-factor authentication.'
               },
               {
-                icon: <FiRefreshCw className="text-2xl text-[#00FF94]" />,
+                icon: <FiRefreshCw className="text-xl md:text-2xl text-[#00FF94]" />,
                 title: 'Regular Updates',
                 description: 'Keep your software and apps updated to patch vulnerabilities.'
               },
               {
-                icon: <FiAlertTriangle className="text-2xl text-[#00FF94]" />,
+                icon: <FiAlertTriangle className="text-xl md:text-2xl text-[#00FF94]" />,
                 title: 'Email Vigilance',
                 description: 'Be cautious with email attachments and suspicious links.'
               }
             ].map((tip, index) => (
               <motion.div 
                 key={index}
-                whileHover={{ y: -5 }}
-                className="bg-gray-800/30 p-5 rounded-lg border border-gray-700 hover:border-[#00FF94]/30 transition-colors"
+                whileHover={{ y: -3 }}
+                className="bg-gray-800/30 p-3 md:p-5 rounded-lg border border-gray-700 hover:border-[#00FF94]/30 transition-colors"
               >
-                <div className="bg-[#00FF94]/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <div className="bg-[#00FF94]/10 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mb-2 md:mb-4">
                   {tip.icon}
                 </div>
-                <h4 className="font-bold text-white mb-2">{tip.title}</h4>
-                <p className="text-sm text-gray-400">{tip.description}</p>
+                <h4 className="font-bold text-white mb-1 md:mb-2 text-sm md:text-base">{tip.title}</h4>
+                <p className="text-xs md:text-sm text-gray-400">{tip.description}</p>
               </motion.div>
             ))}
           </div>
